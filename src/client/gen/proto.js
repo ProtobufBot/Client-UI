@@ -1685,23 +1685,23 @@ $root.dto = (function() {
         return Captcha;
     })();
 
-    dto.GetCaptchaListReq = (function() {
+    dto.ListCaptchaReq = (function() {
 
         /**
-         * Properties of a GetCaptchaListReq.
+         * Properties of a ListCaptchaReq.
          * @memberof dto
-         * @interface IGetCaptchaListReq
+         * @interface IListCaptchaReq
          */
 
         /**
-         * Constructs a new GetCaptchaListReq.
+         * Constructs a new ListCaptchaReq.
          * @memberof dto
-         * @classdesc Represents a GetCaptchaListReq.
-         * @implements IGetCaptchaListReq
+         * @classdesc Represents a ListCaptchaReq.
+         * @implements IListCaptchaReq
          * @constructor
-         * @param {dto.IGetCaptchaListReq=} [properties] Properties to set
+         * @param {dto.IListCaptchaReq=} [properties] Properties to set
          */
-        function GetCaptchaListReq(properties) {
+        function ListCaptchaReq(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1709,60 +1709,60 @@ $root.dto = (function() {
         }
 
         /**
-         * Creates a new GetCaptchaListReq instance using the specified properties.
+         * Creates a new ListCaptchaReq instance using the specified properties.
          * @function create
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
-         * @param {dto.IGetCaptchaListReq=} [properties] Properties to set
-         * @returns {dto.GetCaptchaListReq} GetCaptchaListReq instance
+         * @param {dto.IListCaptchaReq=} [properties] Properties to set
+         * @returns {dto.ListCaptchaReq} ListCaptchaReq instance
          */
-        GetCaptchaListReq.create = function create(properties) {
-            return new GetCaptchaListReq(properties);
+        ListCaptchaReq.create = function create(properties) {
+            return new ListCaptchaReq(properties);
         };
 
         /**
-         * Encodes the specified GetCaptchaListReq message. Does not implicitly {@link dto.GetCaptchaListReq.verify|verify} messages.
+         * Encodes the specified ListCaptchaReq message. Does not implicitly {@link dto.ListCaptchaReq.verify|verify} messages.
          * @function encode
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
-         * @param {dto.IGetCaptchaListReq} message GetCaptchaListReq message or plain object to encode
+         * @param {dto.IListCaptchaReq} message ListCaptchaReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetCaptchaListReq.encode = function encode(message, writer) {
+        ListCaptchaReq.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             return writer;
         };
 
         /**
-         * Encodes the specified GetCaptchaListReq message, length delimited. Does not implicitly {@link dto.GetCaptchaListReq.verify|verify} messages.
+         * Encodes the specified ListCaptchaReq message, length delimited. Does not implicitly {@link dto.ListCaptchaReq.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
-         * @param {dto.IGetCaptchaListReq} message GetCaptchaListReq message or plain object to encode
+         * @param {dto.IListCaptchaReq} message ListCaptchaReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetCaptchaListReq.encodeDelimited = function encodeDelimited(message, writer) {
+        ListCaptchaReq.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetCaptchaListReq message from the specified reader or buffer.
+         * Decodes a ListCaptchaReq message from the specified reader or buffer.
          * @function decode
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {dto.GetCaptchaListReq} GetCaptchaListReq
+         * @returns {dto.ListCaptchaReq} ListCaptchaReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetCaptchaListReq.decode = function decode(reader, length) {
+        ListCaptchaReq.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.GetCaptchaListReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.ListCaptchaReq();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1775,94 +1775,94 @@ $root.dto = (function() {
         };
 
         /**
-         * Decodes a GetCaptchaListReq message from the specified reader or buffer, length delimited.
+         * Decodes a ListCaptchaReq message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {dto.GetCaptchaListReq} GetCaptchaListReq
+         * @returns {dto.ListCaptchaReq} ListCaptchaReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetCaptchaListReq.decodeDelimited = function decodeDelimited(reader) {
+        ListCaptchaReq.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetCaptchaListReq message.
+         * Verifies a ListCaptchaReq message.
          * @function verify
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetCaptchaListReq.verify = function verify(message) {
+        ListCaptchaReq.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             return null;
         };
 
         /**
-         * Creates a GetCaptchaListReq message from a plain object. Also converts values to their respective internal types.
+         * Creates a ListCaptchaReq message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {dto.GetCaptchaListReq} GetCaptchaListReq
+         * @returns {dto.ListCaptchaReq} ListCaptchaReq
          */
-        GetCaptchaListReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.dto.GetCaptchaListReq)
+        ListCaptchaReq.fromObject = function fromObject(object) {
+            if (object instanceof $root.dto.ListCaptchaReq)
                 return object;
-            return new $root.dto.GetCaptchaListReq();
+            return new $root.dto.ListCaptchaReq();
         };
 
         /**
-         * Creates a plain object from a GetCaptchaListReq message. Also converts values to other types if specified.
+         * Creates a plain object from a ListCaptchaReq message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @static
-         * @param {dto.GetCaptchaListReq} message GetCaptchaListReq
+         * @param {dto.ListCaptchaReq} message ListCaptchaReq
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetCaptchaListReq.toObject = function toObject() {
+        ListCaptchaReq.toObject = function toObject() {
             return {};
         };
 
         /**
-         * Converts this GetCaptchaListReq to JSON.
+         * Converts this ListCaptchaReq to JSON.
          * @function toJSON
-         * @memberof dto.GetCaptchaListReq
+         * @memberof dto.ListCaptchaReq
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetCaptchaListReq.prototype.toJSON = function toJSON() {
+        ListCaptchaReq.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetCaptchaListReq;
+        return ListCaptchaReq;
     })();
 
-    dto.GetCaptchaListResp = (function() {
+    dto.ListCaptchaResp = (function() {
 
         /**
-         * Properties of a GetCaptchaListResp.
+         * Properties of a ListCaptchaResp.
          * @memberof dto
-         * @interface IGetCaptchaListResp
-         * @property {Array.<dto.ICaptcha>|null} [captchaList] GetCaptchaListResp captchaList
+         * @interface IListCaptchaResp
+         * @property {Array.<dto.ICaptcha>|null} [captchaList] ListCaptchaResp captchaList
          */
 
         /**
-         * Constructs a new GetCaptchaListResp.
+         * Constructs a new ListCaptchaResp.
          * @memberof dto
-         * @classdesc Represents a GetCaptchaListResp.
-         * @implements IGetCaptchaListResp
+         * @classdesc Represents a ListCaptchaResp.
+         * @implements IListCaptchaResp
          * @constructor
-         * @param {dto.IGetCaptchaListResp=} [properties] Properties to set
+         * @param {dto.IListCaptchaResp=} [properties] Properties to set
          */
-        function GetCaptchaListResp(properties) {
+        function ListCaptchaResp(properties) {
             this.captchaList = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -1871,35 +1871,35 @@ $root.dto = (function() {
         }
 
         /**
-         * GetCaptchaListResp captchaList.
+         * ListCaptchaResp captchaList.
          * @member {Array.<dto.ICaptcha>} captchaList
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @instance
          */
-        GetCaptchaListResp.prototype.captchaList = $util.emptyArray;
+        ListCaptchaResp.prototype.captchaList = $util.emptyArray;
 
         /**
-         * Creates a new GetCaptchaListResp instance using the specified properties.
+         * Creates a new ListCaptchaResp instance using the specified properties.
          * @function create
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
-         * @param {dto.IGetCaptchaListResp=} [properties] Properties to set
-         * @returns {dto.GetCaptchaListResp} GetCaptchaListResp instance
+         * @param {dto.IListCaptchaResp=} [properties] Properties to set
+         * @returns {dto.ListCaptchaResp} ListCaptchaResp instance
          */
-        GetCaptchaListResp.create = function create(properties) {
-            return new GetCaptchaListResp(properties);
+        ListCaptchaResp.create = function create(properties) {
+            return new ListCaptchaResp(properties);
         };
 
         /**
-         * Encodes the specified GetCaptchaListResp message. Does not implicitly {@link dto.GetCaptchaListResp.verify|verify} messages.
+         * Encodes the specified ListCaptchaResp message. Does not implicitly {@link dto.ListCaptchaResp.verify|verify} messages.
          * @function encode
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
-         * @param {dto.IGetCaptchaListResp} message GetCaptchaListResp message or plain object to encode
+         * @param {dto.IListCaptchaResp} message ListCaptchaResp message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetCaptchaListResp.encode = function encode(message, writer) {
+        ListCaptchaResp.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.captchaList != null && message.captchaList.length)
@@ -1909,33 +1909,33 @@ $root.dto = (function() {
         };
 
         /**
-         * Encodes the specified GetCaptchaListResp message, length delimited. Does not implicitly {@link dto.GetCaptchaListResp.verify|verify} messages.
+         * Encodes the specified ListCaptchaResp message, length delimited. Does not implicitly {@link dto.ListCaptchaResp.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
-         * @param {dto.IGetCaptchaListResp} message GetCaptchaListResp message or plain object to encode
+         * @param {dto.IListCaptchaResp} message ListCaptchaResp message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetCaptchaListResp.encodeDelimited = function encodeDelimited(message, writer) {
+        ListCaptchaResp.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetCaptchaListResp message from the specified reader or buffer.
+         * Decodes a ListCaptchaResp message from the specified reader or buffer.
          * @function decode
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {dto.GetCaptchaListResp} GetCaptchaListResp
+         * @returns {dto.ListCaptchaResp} ListCaptchaResp
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetCaptchaListResp.decode = function decode(reader, length) {
+        ListCaptchaResp.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.GetCaptchaListResp();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.ListCaptchaResp();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1953,30 +1953,30 @@ $root.dto = (function() {
         };
 
         /**
-         * Decodes a GetCaptchaListResp message from the specified reader or buffer, length delimited.
+         * Decodes a ListCaptchaResp message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {dto.GetCaptchaListResp} GetCaptchaListResp
+         * @returns {dto.ListCaptchaResp} ListCaptchaResp
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetCaptchaListResp.decodeDelimited = function decodeDelimited(reader) {
+        ListCaptchaResp.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetCaptchaListResp message.
+         * Verifies a ListCaptchaResp message.
          * @function verify
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetCaptchaListResp.verify = function verify(message) {
+        ListCaptchaResp.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.captchaList != null && message.hasOwnProperty("captchaList")) {
@@ -1992,24 +1992,24 @@ $root.dto = (function() {
         };
 
         /**
-         * Creates a GetCaptchaListResp message from a plain object. Also converts values to their respective internal types.
+         * Creates a ListCaptchaResp message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {dto.GetCaptchaListResp} GetCaptchaListResp
+         * @returns {dto.ListCaptchaResp} ListCaptchaResp
          */
-        GetCaptchaListResp.fromObject = function fromObject(object) {
-            if (object instanceof $root.dto.GetCaptchaListResp)
+        ListCaptchaResp.fromObject = function fromObject(object) {
+            if (object instanceof $root.dto.ListCaptchaResp)
                 return object;
-            var message = new $root.dto.GetCaptchaListResp();
+            var message = new $root.dto.ListCaptchaResp();
             if (object.captchaList) {
                 if (!Array.isArray(object.captchaList))
-                    throw TypeError(".dto.GetCaptchaListResp.captchaList: array expected");
+                    throw TypeError(".dto.ListCaptchaResp.captchaList: array expected");
                 message.captchaList = [];
                 for (var i = 0; i < object.captchaList.length; ++i) {
                     if (typeof object.captchaList[i] !== "object")
-                        throw TypeError(".dto.GetCaptchaListResp.captchaList: object expected");
+                        throw TypeError(".dto.ListCaptchaResp.captchaList: object expected");
                     message.captchaList[i] = $root.dto.Captcha.fromObject(object.captchaList[i]);
                 }
             }
@@ -2017,15 +2017,15 @@ $root.dto = (function() {
         };
 
         /**
-         * Creates a plain object from a GetCaptchaListResp message. Also converts values to other types if specified.
+         * Creates a plain object from a ListCaptchaResp message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @static
-         * @param {dto.GetCaptchaListResp} message GetCaptchaListResp
+         * @param {dto.ListCaptchaResp} message ListCaptchaResp
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetCaptchaListResp.toObject = function toObject(message, options) {
+        ListCaptchaResp.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2040,17 +2040,17 @@ $root.dto = (function() {
         };
 
         /**
-         * Converts this GetCaptchaListResp to JSON.
+         * Converts this ListCaptchaResp to JSON.
          * @function toJSON
-         * @memberof dto.GetCaptchaListResp
+         * @memberof dto.ListCaptchaResp
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetCaptchaListResp.prototype.toJSON = function toJSON() {
+        ListCaptchaResp.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetCaptchaListResp;
+        return ListCaptchaResp;
     })();
 
     dto.SolveCaptchaReq = (function() {
@@ -2569,35 +2569,35 @@ $root.dto = (function() {
          */
 
         /**
-         * Callback as used by {@link dto.HttpService#getCaptchaList}.
+         * Callback as used by {@link dto.HttpService#listCaptcha}.
          * @memberof dto.HttpService
-         * @typedef GetCaptchaListCallback
+         * @typedef ListCaptchaCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {dto.GetCaptchaListResp} [response] GetCaptchaListResp
+         * @param {dto.ListCaptchaResp} [response] ListCaptchaResp
          */
 
         /**
-         * Calls GetCaptchaList.
-         * @function getCaptchaList
+         * Calls ListCaptcha.
+         * @function listCaptcha
          * @memberof dto.HttpService
          * @instance
-         * @param {dto.IGetCaptchaListReq} request GetCaptchaListReq message or plain object
-         * @param {dto.HttpService.GetCaptchaListCallback} callback Node-style callback called with the error, if any, and GetCaptchaListResp
+         * @param {dto.IListCaptchaReq} request ListCaptchaReq message or plain object
+         * @param {dto.HttpService.ListCaptchaCallback} callback Node-style callback called with the error, if any, and ListCaptchaResp
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(HttpService.prototype.getCaptchaList = function getCaptchaList(request, callback) {
-            return this.rpcCall(getCaptchaList, $root.dto.GetCaptchaListReq, $root.dto.GetCaptchaListResp, request, callback);
-        }, "name", { value: "GetCaptchaList" });
+        Object.defineProperty(HttpService.prototype.listCaptcha = function listCaptcha(request, callback) {
+            return this.rpcCall(listCaptcha, $root.dto.ListCaptchaReq, $root.dto.ListCaptchaResp, request, callback);
+        }, "name", { value: "ListCaptcha" });
 
         /**
-         * Calls GetCaptchaList.
-         * @function getCaptchaList
+         * Calls ListCaptcha.
+         * @function listCaptcha
          * @memberof dto.HttpService
          * @instance
-         * @param {dto.IGetCaptchaListReq} request GetCaptchaListReq message or plain object
-         * @returns {Promise<dto.GetCaptchaListResp>} Promise
+         * @param {dto.IListCaptchaReq} request ListCaptchaReq message or plain object
+         * @returns {Promise<dto.ListCaptchaResp>} Promise
          * @variation 2
          */
 

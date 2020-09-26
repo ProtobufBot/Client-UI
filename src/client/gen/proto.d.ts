@@ -748,175 +748,175 @@ export namespace dto {
         }
     }
 
-    /** Properties of a GetCaptchaListReq. */
-    interface IGetCaptchaListReq {
+    /** Properties of a ListCaptchaReq. */
+    interface IListCaptchaReq {
     }
 
-    /** Represents a GetCaptchaListReq. */
-    class GetCaptchaListReq implements IGetCaptchaListReq {
+    /** Represents a ListCaptchaReq. */
+    class ListCaptchaReq implements IListCaptchaReq {
 
         /**
-         * Constructs a new GetCaptchaListReq.
+         * Constructs a new ListCaptchaReq.
          * @param [properties] Properties to set
          */
-        constructor(properties?: dto.IGetCaptchaListReq);
+        constructor(properties?: dto.IListCaptchaReq);
 
         /**
-         * Creates a new GetCaptchaListReq instance using the specified properties.
+         * Creates a new ListCaptchaReq instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetCaptchaListReq instance
+         * @returns ListCaptchaReq instance
          */
-        public static create(properties?: dto.IGetCaptchaListReq): dto.GetCaptchaListReq;
+        public static create(properties?: dto.IListCaptchaReq): dto.ListCaptchaReq;
 
         /**
-         * Encodes the specified GetCaptchaListReq message. Does not implicitly {@link dto.GetCaptchaListReq.verify|verify} messages.
-         * @param message GetCaptchaListReq message or plain object to encode
+         * Encodes the specified ListCaptchaReq message. Does not implicitly {@link dto.ListCaptchaReq.verify|verify} messages.
+         * @param message ListCaptchaReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: dto.IGetCaptchaListReq, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: dto.IListCaptchaReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetCaptchaListReq message, length delimited. Does not implicitly {@link dto.GetCaptchaListReq.verify|verify} messages.
-         * @param message GetCaptchaListReq message or plain object to encode
+         * Encodes the specified ListCaptchaReq message, length delimited. Does not implicitly {@link dto.ListCaptchaReq.verify|verify} messages.
+         * @param message ListCaptchaReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: dto.IGetCaptchaListReq, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: dto.IListCaptchaReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetCaptchaListReq message from the specified reader or buffer.
+         * Decodes a ListCaptchaReq message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetCaptchaListReq
+         * @returns ListCaptchaReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.GetCaptchaListReq;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.ListCaptchaReq;
 
         /**
-         * Decodes a GetCaptchaListReq message from the specified reader or buffer, length delimited.
+         * Decodes a ListCaptchaReq message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetCaptchaListReq
+         * @returns ListCaptchaReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.GetCaptchaListReq;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.ListCaptchaReq;
 
         /**
-         * Verifies a GetCaptchaListReq message.
+         * Verifies a ListCaptchaReq message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetCaptchaListReq message from a plain object. Also converts values to their respective internal types.
+         * Creates a ListCaptchaReq message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetCaptchaListReq
+         * @returns ListCaptchaReq
          */
-        public static fromObject(object: { [k: string]: any }): dto.GetCaptchaListReq;
+        public static fromObject(object: { [k: string]: any }): dto.ListCaptchaReq;
 
         /**
-         * Creates a plain object from a GetCaptchaListReq message. Also converts values to other types if specified.
-         * @param message GetCaptchaListReq
+         * Creates a plain object from a ListCaptchaReq message. Also converts values to other types if specified.
+         * @param message ListCaptchaReq
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: dto.GetCaptchaListReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: dto.ListCaptchaReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetCaptchaListReq to JSON.
+         * Converts this ListCaptchaReq to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetCaptchaListResp. */
-    interface IGetCaptchaListResp {
+    /** Properties of a ListCaptchaResp. */
+    interface IListCaptchaResp {
 
-        /** GetCaptchaListResp captchaList */
+        /** ListCaptchaResp captchaList */
         captchaList?: (dto.ICaptcha[]|null);
     }
 
-    /** Represents a GetCaptchaListResp. */
-    class GetCaptchaListResp implements IGetCaptchaListResp {
+    /** Represents a ListCaptchaResp. */
+    class ListCaptchaResp implements IListCaptchaResp {
 
         /**
-         * Constructs a new GetCaptchaListResp.
+         * Constructs a new ListCaptchaResp.
          * @param [properties] Properties to set
          */
-        constructor(properties?: dto.IGetCaptchaListResp);
+        constructor(properties?: dto.IListCaptchaResp);
 
-        /** GetCaptchaListResp captchaList. */
+        /** ListCaptchaResp captchaList. */
         public captchaList: dto.ICaptcha[];
 
         /**
-         * Creates a new GetCaptchaListResp instance using the specified properties.
+         * Creates a new ListCaptchaResp instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetCaptchaListResp instance
+         * @returns ListCaptchaResp instance
          */
-        public static create(properties?: dto.IGetCaptchaListResp): dto.GetCaptchaListResp;
+        public static create(properties?: dto.IListCaptchaResp): dto.ListCaptchaResp;
 
         /**
-         * Encodes the specified GetCaptchaListResp message. Does not implicitly {@link dto.GetCaptchaListResp.verify|verify} messages.
-         * @param message GetCaptchaListResp message or plain object to encode
+         * Encodes the specified ListCaptchaResp message. Does not implicitly {@link dto.ListCaptchaResp.verify|verify} messages.
+         * @param message ListCaptchaResp message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: dto.IGetCaptchaListResp, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: dto.IListCaptchaResp, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetCaptchaListResp message, length delimited. Does not implicitly {@link dto.GetCaptchaListResp.verify|verify} messages.
-         * @param message GetCaptchaListResp message or plain object to encode
+         * Encodes the specified ListCaptchaResp message, length delimited. Does not implicitly {@link dto.ListCaptchaResp.verify|verify} messages.
+         * @param message ListCaptchaResp message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: dto.IGetCaptchaListResp, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: dto.IListCaptchaResp, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetCaptchaListResp message from the specified reader or buffer.
+         * Decodes a ListCaptchaResp message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetCaptchaListResp
+         * @returns ListCaptchaResp
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.GetCaptchaListResp;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.ListCaptchaResp;
 
         /**
-         * Decodes a GetCaptchaListResp message from the specified reader or buffer, length delimited.
+         * Decodes a ListCaptchaResp message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetCaptchaListResp
+         * @returns ListCaptchaResp
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.GetCaptchaListResp;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.ListCaptchaResp;
 
         /**
-         * Verifies a GetCaptchaListResp message.
+         * Verifies a ListCaptchaResp message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetCaptchaListResp message from a plain object. Also converts values to their respective internal types.
+         * Creates a ListCaptchaResp message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetCaptchaListResp
+         * @returns ListCaptchaResp
          */
-        public static fromObject(object: { [k: string]: any }): dto.GetCaptchaListResp;
+        public static fromObject(object: { [k: string]: any }): dto.ListCaptchaResp;
 
         /**
-         * Creates a plain object from a GetCaptchaListResp message. Also converts values to other types if specified.
-         * @param message GetCaptchaListResp
+         * Creates a plain object from a ListCaptchaResp message. Also converts values to other types if specified.
+         * @param message ListCaptchaResp
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: dto.GetCaptchaListResp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: dto.ListCaptchaResp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetCaptchaListResp to JSON.
+         * Converts this ListCaptchaResp to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -1165,18 +1165,18 @@ export namespace dto {
         public botLoginAsync(request: dto.IBotLoginAsyncReq): Promise<dto.BotLoginAsyncResp>;
 
         /**
-         * Calls GetCaptchaList.
-         * @param request GetCaptchaListReq message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetCaptchaListResp
+         * Calls ListCaptcha.
+         * @param request ListCaptchaReq message or plain object
+         * @param callback Node-style callback called with the error, if any, and ListCaptchaResp
          */
-        public getCaptchaList(request: dto.IGetCaptchaListReq, callback: dto.HttpService.GetCaptchaListCallback): void;
+        public listCaptcha(request: dto.IListCaptchaReq, callback: dto.HttpService.ListCaptchaCallback): void;
 
         /**
-         * Calls GetCaptchaList.
-         * @param request GetCaptchaListReq message or plain object
+         * Calls ListCaptcha.
+         * @param request ListCaptchaReq message or plain object
          * @returns Promise
          */
-        public getCaptchaList(request: dto.IGetCaptchaListReq): Promise<dto.GetCaptchaListResp>;
+        public listCaptcha(request: dto.IListCaptchaReq): Promise<dto.ListCaptchaResp>;
 
         /**
          * Calls SolveCaptcha.
@@ -1217,11 +1217,11 @@ export namespace dto {
         type BotLoginAsyncCallback = (error: (Error|null), response?: dto.BotLoginAsyncResp) => void;
 
         /**
-         * Callback as used by {@link dto.HttpService#getCaptchaList}.
+         * Callback as used by {@link dto.HttpService#listCaptcha}.
          * @param error Error, if any
-         * @param [response] GetCaptchaListResp
+         * @param [response] ListCaptchaResp
          */
-        type GetCaptchaListCallback = (error: (Error|null), response?: dto.GetCaptchaListResp) => void;
+        type ListCaptchaCallback = (error: (Error|null), response?: dto.ListCaptchaResp) => void;
 
         /**
          * Callback as used by {@link dto.HttpService#solveCaptcha}.
