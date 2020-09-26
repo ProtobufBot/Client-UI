@@ -1,31 +1,73 @@
 <template>
     <v-container class="home">
-        <v-row>
-            <v-col cols="4">
-                <v-text-field dense v-model="createBotId" outlined placeholder="QQ"></v-text-field>
-            </v-col>
-            <v-col cols="4">
-                <v-text-field dense v-model="createBotPassword" outlined placeholder="密码" type="password"></v-text-field>
-            </v-col>
-            <v-col cols="2">
-                <v-btn @click="createBot" color="primary">创建</v-btn>
-            </v-col>
-        </v-row>
+        <v-card class="pa-4 ma-4">
+            <v-row>
+                <v-col><h2>创建机器人</h2></v-col>
+                <v-col cols="4">
+                    <v-text-field dense v-model="createBotId" outlined placeholder="QQ"></v-text-field>
+                </v-col>
+                <v-col cols="4">
+                    <v-text-field dense v-model="createBotPassword" outlined placeholder="密码"
+                                  type="password"></v-text-field>
+                </v-col>
+                <v-col cols="2">
+                    <v-btn @click="createBot" color="primary">创建</v-btn>
+                </v-col>
+            </v-row>
 
-        <v-container>
-            <h1>机器人列表</h1>
-            <v-data-table :items="listBotResp.botList" :headers="botTableHeaders">
-                <template v-slot:item.login="{ item }">
-                    <v-btn @click="login(item.botId)" color="success">登陆</v-btn>
-                </template>
-            </v-data-table>
-        </v-container>
-        <v-container>
-            <h1>验证码列表</h1>
-            <v-data-table :items="listCaptchaResp.captchaList" :headers="captchaTableHeaders">
+            <v-container>
+                <h1>机器人列表</h1>
+                <v-data-table :items="listBotResp.botList" :headers="botTableHeaders">
+                    <template v-slot:item.isOnline="{ item }">
+                        <v-chip :color="item.isOnline?'success':'error'">{{item.isOnline?'在线':'离线'}}</v-chip>
+                    </template>
+                    <template v-slot:item.login="{ item }">
+                        <v-btn :disabled="item.isOnline" @click="login(item.botId)" color="success">登陆</v-btn>
+                    </template>
+                </v-data-table>
+            </v-container>
+        </v-card>
 
-            </v-data-table>
-        </v-container>
+
+        <v-card class="pa-4 ma-4">
+            <v-row>
+                <v-col><h2>处理验证码</h2></v-col>
+                <v-col cols="4">
+                    <v-text-field dense v-model="captchaBotId" outlined placeholder="QQ"></v-text-field>
+                </v-col>
+                <v-col cols="4">
+                    <v-text-field dense v-model="captchaResult" outlined placeholder="结果"></v-text-field>
+                </v-col>
+                <v-col cols="2">
+                    <v-btn @click="solveCaptcha" color="primary">提交</v-btn>
+                </v-col>
+            </v-row>
+            <v-container>
+                <h1>验证码列表</h1>
+                <v-data-table :items="listCaptchaResp.captchaList" :headers="captchaTableHeaders">
+                    <template v-slot:item.captchaType="{ item }">
+                        <span v-if="item.captchaType===CaptchaType.PIC_CAPTCHA">图片</span>
+                        <span v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA">滑动</span>
+                        <span v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY">设备锁</span>
+                    </template>
+                    <template v-slot:item.captchaType="{ item }">
+                        <span v-if="item.captchaType===CaptchaType.PIC_CAPTCHA">图片</span>
+                        <span v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA">滑动</span>
+                        <span v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY">设备锁</span>
+                    </template>
+                    <template v-slot:item.detail="{ item }">
+                        <img v-if="item.captchaType===CaptchaType.PIC_CAPTCHA" :src="getImage(item.image)"
+                             style="height: 36px"/>
+                        <a v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA" target="_blank" :href="item.url">链接</a>
+                        <a v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY" target="_blank"
+                           :href="item.url">链接</a>
+                    </template>
+                </v-data-table>
+
+            </v-container>
+        </v-card>
+
+
     </v-container>
 </template>
 
@@ -42,9 +84,11 @@
     import ListBotReq = dto.ListBotReq;
     import IListCaptchaResp = dto.IListCaptchaResp;
     import ListCaptchaReq = dto.ListCaptchaReq;
+    import CaptchaType = dto.Captcha.CaptchaType;
 
     @Component
     export default class Home extends Vue {
+        CaptchaType = CaptchaType
 
         mounted() {
             setInterval(() => {
@@ -71,6 +115,14 @@
             })
         }
 
+        getImage(bytes: Uint8Array): string {
+            let data = ""
+            for (let i = 0; i < bytes.length; i++) {
+                data += String.fromCharCode(bytes[i])
+            }
+            return "data:image/png;base64," + window.btoa(data)
+        }
+
         listBotResp: IListBotResp = {
             botList: []
         }
@@ -78,17 +130,17 @@
             {
                 text: "QQ",
                 value: "botId",
-                align:"center"
+                align: "center"
             },
             {
                 text: "在线",
                 value: "isOnline",
-                align:"center"
+                align: "center"
             },
             {
                 text: "登陆",
                 value: "login",
-                align:"center"
+                align: "center"
             }
         ]
 
@@ -110,23 +162,32 @@
             {
                 text: "QQ",
                 value: "botId",
-                align:"center"
+                align: "center"
             },
             {
                 text: "验证类型",
                 value: "captchaType",
-                align:"center"
+                align: "center"
             },
             {
-                text: "操作",
-                value: "action",
-                align:"center"
+                text: "详情",
+                value: "detail",
+                align: "center"
             }
         ]
 
         async listCaptcha() {
             this.listCaptchaResp = await service.listCaptcha(new ListCaptchaReq())
+        }
 
+        captchaBotId: string = ''
+        captchaResult: string = ''
+
+        solveCaptcha() {
+            service.solveCaptcha({
+                botId: Long.fromString(this.captchaBotId),
+                result: this.captchaResult
+            })
         }
 
     }
