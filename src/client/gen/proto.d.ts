@@ -1,5 +1,4 @@
 import * as $protobuf from "protobufjs";
-import Long from "long";
 /** Namespace dto. */
 export namespace dto {
 
@@ -744,7 +743,8 @@ export namespace dto {
         enum CaptchaType {
             PIC_CAPTCHA = 0,
             SLIDER_CAPTCHA = 1,
-            UNSAFE_DEVICE_LOGIN_VERIFY = 2
+            UNSAFE_DEVICE_LOGIN_VERIFY = 2,
+            SMS = 4
         }
     }
 

@@ -1552,6 +1552,7 @@ $root.dto = (function() {
                 case 0:
                 case 1:
                 case 2:
+                case 4:
                     break;
                 }
             if (message.url != null && message.hasOwnProperty("url")) {
@@ -1602,6 +1603,10 @@ $root.dto = (function() {
             case "UNSAFE_DEVICE_LOGIN_VERIFY":
             case 2:
                 message.captchaType = 2;
+                break;
+            case "SMS":
+            case 4:
+                message.captchaType = 4;
                 break;
             }
             if (object.url != null)
@@ -1673,12 +1678,14 @@ $root.dto = (function() {
          * @property {number} PIC_CAPTCHA=0 PIC_CAPTCHA value
          * @property {number} SLIDER_CAPTCHA=1 SLIDER_CAPTCHA value
          * @property {number} UNSAFE_DEVICE_LOGIN_VERIFY=2 UNSAFE_DEVICE_LOGIN_VERIFY value
+         * @property {number} SMS=4 SMS value
          */
         Captcha.CaptchaType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "PIC_CAPTCHA"] = 0;
             values[valuesById[1] = "SLIDER_CAPTCHA"] = 1;
             values[valuesById[2] = "UNSAFE_DEVICE_LOGIN_VERIFY"] = 2;
+            values[valuesById[4] = "SMS"] = 4;
             return values;
         })();
 

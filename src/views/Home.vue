@@ -54,6 +54,7 @@
                         <span v-if="item.captchaType===CaptchaType.PIC_CAPTCHA">图片</span>
                         <span v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA">滑动</span>
                         <span v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY">设备锁</span>
+                        <span v-if="item.captchaType===CaptchaType.SMS">短信</span>
                     </template>
                     <template v-slot:item.detail="{ item }">
                         <img v-if="item.captchaType===CaptchaType.PIC_CAPTCHA" :src="getImage(item.image)"
@@ -61,6 +62,7 @@
                         <a v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA" target="_blank" :href="item.url">链接</a>
                         <a v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY" target="_blank"
                            :href="item.url">链接</a>
+                        <span v-if="item.captchaType===CaptchaType.SMS">{{item.url}}</span>
                     </template>
                 </v-data-table>
 
@@ -109,7 +111,7 @@
 
         createBot() {
             service.createBot(this.createBotReq).then(resp => {
-                alert("创建成功")
+                alert("创建成功，请处理下方验证码，如果是设备锁验证码填1234")
             }).catch(reason => {
                 alert("创建失败")
             })

@@ -40,6 +40,7 @@ message Captcha{
     PIC_CAPTCHA = 0;
     SLIDER_CAPTCHA = 1;
     UNSAFE_DEVICE_LOGIN_VERIFY = 2;
+    SMS = 4;
   }
 }
 
