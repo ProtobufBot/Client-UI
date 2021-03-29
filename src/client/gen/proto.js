@@ -2444,6 +2444,674 @@ $root.dto = (function() {
         return SolveCaptchaResp;
     })();
 
+    dto.FetchQRCodeReq = (function() {
+
+        /**
+         * Properties of a FetchQRCodeReq.
+         * @memberof dto
+         * @interface IFetchQRCodeReq
+         */
+
+        /**
+         * Constructs a new FetchQRCodeReq.
+         * @memberof dto
+         * @classdesc Represents a FetchQRCodeReq.
+         * @implements IFetchQRCodeReq
+         * @constructor
+         * @param {dto.IFetchQRCodeReq=} [properties] Properties to set
+         */
+        function FetchQRCodeReq(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Creates a new FetchQRCodeReq instance using the specified properties.
+         * @function create
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {dto.IFetchQRCodeReq=} [properties] Properties to set
+         * @returns {dto.FetchQRCodeReq} FetchQRCodeReq instance
+         */
+        FetchQRCodeReq.create = function create(properties) {
+            return new FetchQRCodeReq(properties);
+        };
+
+        /**
+         * Encodes the specified FetchQRCodeReq message. Does not implicitly {@link dto.FetchQRCodeReq.verify|verify} messages.
+         * @function encode
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {dto.IFetchQRCodeReq} message FetchQRCodeReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FetchQRCodeReq.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified FetchQRCodeReq message, length delimited. Does not implicitly {@link dto.FetchQRCodeReq.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {dto.IFetchQRCodeReq} message FetchQRCodeReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        FetchQRCodeReq.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a FetchQRCodeReq message from the specified reader or buffer.
+         * @function decode
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dto.FetchQRCodeReq} FetchQRCodeReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FetchQRCodeReq.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.FetchQRCodeReq();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a FetchQRCodeReq message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dto.FetchQRCodeReq} FetchQRCodeReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        FetchQRCodeReq.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a FetchQRCodeReq message.
+         * @function verify
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        FetchQRCodeReq.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            return null;
+        };
+
+        /**
+         * Creates a FetchQRCodeReq message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dto.FetchQRCodeReq} FetchQRCodeReq
+         */
+        FetchQRCodeReq.fromObject = function fromObject(object) {
+            if (object instanceof $root.dto.FetchQRCodeReq)
+                return object;
+            return new $root.dto.FetchQRCodeReq();
+        };
+
+        /**
+         * Creates a plain object from a FetchQRCodeReq message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dto.FetchQRCodeReq
+         * @static
+         * @param {dto.FetchQRCodeReq} message FetchQRCodeReq
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        FetchQRCodeReq.toObject = function toObject() {
+            return {};
+        };
+
+        /**
+         * Converts this FetchQRCodeReq to JSON.
+         * @function toJSON
+         * @memberof dto.FetchQRCodeReq
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        FetchQRCodeReq.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return FetchQRCodeReq;
+    })();
+
+    dto.QueryQRCodeStatusReq = (function() {
+
+        /**
+         * Properties of a QueryQRCodeStatusReq.
+         * @memberof dto
+         * @interface IQueryQRCodeStatusReq
+         * @property {Uint8Array|null} [sig] QueryQRCodeStatusReq sig
+         */
+
+        /**
+         * Constructs a new QueryQRCodeStatusReq.
+         * @memberof dto
+         * @classdesc Represents a QueryQRCodeStatusReq.
+         * @implements IQueryQRCodeStatusReq
+         * @constructor
+         * @param {dto.IQueryQRCodeStatusReq=} [properties] Properties to set
+         */
+        function QueryQRCodeStatusReq(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * QueryQRCodeStatusReq sig.
+         * @member {Uint8Array} sig
+         * @memberof dto.QueryQRCodeStatusReq
+         * @instance
+         */
+        QueryQRCodeStatusReq.prototype.sig = $util.newBuffer([]);
+
+        /**
+         * Creates a new QueryQRCodeStatusReq instance using the specified properties.
+         * @function create
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {dto.IQueryQRCodeStatusReq=} [properties] Properties to set
+         * @returns {dto.QueryQRCodeStatusReq} QueryQRCodeStatusReq instance
+         */
+        QueryQRCodeStatusReq.create = function create(properties) {
+            return new QueryQRCodeStatusReq(properties);
+        };
+
+        /**
+         * Encodes the specified QueryQRCodeStatusReq message. Does not implicitly {@link dto.QueryQRCodeStatusReq.verify|verify} messages.
+         * @function encode
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {dto.IQueryQRCodeStatusReq} message QueryQRCodeStatusReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QueryQRCodeStatusReq.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.sig != null && Object.hasOwnProperty.call(message, "sig"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.sig);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified QueryQRCodeStatusReq message, length delimited. Does not implicitly {@link dto.QueryQRCodeStatusReq.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {dto.IQueryQRCodeStatusReq} message QueryQRCodeStatusReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QueryQRCodeStatusReq.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a QueryQRCodeStatusReq message from the specified reader or buffer.
+         * @function decode
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dto.QueryQRCodeStatusReq} QueryQRCodeStatusReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QueryQRCodeStatusReq.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.QueryQRCodeStatusReq();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.sig = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a QueryQRCodeStatusReq message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dto.QueryQRCodeStatusReq} QueryQRCodeStatusReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QueryQRCodeStatusReq.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a QueryQRCodeStatusReq message.
+         * @function verify
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        QueryQRCodeStatusReq.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.sig != null && message.hasOwnProperty("sig"))
+                if (!(message.sig && typeof message.sig.length === "number" || $util.isString(message.sig)))
+                    return "sig: buffer expected";
+            return null;
+        };
+
+        /**
+         * Creates a QueryQRCodeStatusReq message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dto.QueryQRCodeStatusReq} QueryQRCodeStatusReq
+         */
+        QueryQRCodeStatusReq.fromObject = function fromObject(object) {
+            if (object instanceof $root.dto.QueryQRCodeStatusReq)
+                return object;
+            var message = new $root.dto.QueryQRCodeStatusReq();
+            if (object.sig != null)
+                if (typeof object.sig === "string")
+                    $util.base64.decode(object.sig, message.sig = $util.newBuffer($util.base64.length(object.sig)), 0);
+                else if (object.sig.length)
+                    message.sig = object.sig;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a QueryQRCodeStatusReq message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dto.QueryQRCodeStatusReq
+         * @static
+         * @param {dto.QueryQRCodeStatusReq} message QueryQRCodeStatusReq
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        QueryQRCodeStatusReq.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if (options.bytes === String)
+                    object.sig = "";
+                else {
+                    object.sig = [];
+                    if (options.bytes !== Array)
+                        object.sig = $util.newBuffer(object.sig);
+                }
+            if (message.sig != null && message.hasOwnProperty("sig"))
+                object.sig = options.bytes === String ? $util.base64.encode(message.sig, 0, message.sig.length) : options.bytes === Array ? Array.prototype.slice.call(message.sig) : message.sig;
+            return object;
+        };
+
+        /**
+         * Converts this QueryQRCodeStatusReq to JSON.
+         * @function toJSON
+         * @memberof dto.QueryQRCodeStatusReq
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        QueryQRCodeStatusReq.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return QueryQRCodeStatusReq;
+    })();
+
+    dto.QRCodeLoginResp = (function() {
+
+        /**
+         * Properties of a QRCodeLoginResp.
+         * @memberof dto
+         * @interface IQRCodeLoginResp
+         * @property {dto.QRCodeLoginResp.QRCodeLoginState|null} [state] QRCodeLoginResp state
+         * @property {Uint8Array|null} [imageData] QRCodeLoginResp imageData
+         * @property {Uint8Array|null} [sig] QRCodeLoginResp sig
+         */
+
+        /**
+         * Constructs a new QRCodeLoginResp.
+         * @memberof dto
+         * @classdesc Represents a QRCodeLoginResp.
+         * @implements IQRCodeLoginResp
+         * @constructor
+         * @param {dto.IQRCodeLoginResp=} [properties] Properties to set
+         */
+        function QRCodeLoginResp(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * QRCodeLoginResp state.
+         * @member {dto.QRCodeLoginResp.QRCodeLoginState} state
+         * @memberof dto.QRCodeLoginResp
+         * @instance
+         */
+        QRCodeLoginResp.prototype.state = 0;
+
+        /**
+         * QRCodeLoginResp imageData.
+         * @member {Uint8Array} imageData
+         * @memberof dto.QRCodeLoginResp
+         * @instance
+         */
+        QRCodeLoginResp.prototype.imageData = $util.newBuffer([]);
+
+        /**
+         * QRCodeLoginResp sig.
+         * @member {Uint8Array} sig
+         * @memberof dto.QRCodeLoginResp
+         * @instance
+         */
+        QRCodeLoginResp.prototype.sig = $util.newBuffer([]);
+
+        /**
+         * Creates a new QRCodeLoginResp instance using the specified properties.
+         * @function create
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {dto.IQRCodeLoginResp=} [properties] Properties to set
+         * @returns {dto.QRCodeLoginResp} QRCodeLoginResp instance
+         */
+        QRCodeLoginResp.create = function create(properties) {
+            return new QRCodeLoginResp(properties);
+        };
+
+        /**
+         * Encodes the specified QRCodeLoginResp message. Does not implicitly {@link dto.QRCodeLoginResp.verify|verify} messages.
+         * @function encode
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {dto.IQRCodeLoginResp} message QRCodeLoginResp message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QRCodeLoginResp.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.state);
+            if (message.imageData != null && Object.hasOwnProperty.call(message, "imageData"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.imageData);
+            if (message.sig != null && Object.hasOwnProperty.call(message, "sig"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.sig);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified QRCodeLoginResp message, length delimited. Does not implicitly {@link dto.QRCodeLoginResp.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {dto.IQRCodeLoginResp} message QRCodeLoginResp message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        QRCodeLoginResp.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a QRCodeLoginResp message from the specified reader or buffer.
+         * @function decode
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dto.QRCodeLoginResp} QRCodeLoginResp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QRCodeLoginResp.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.dto.QRCodeLoginResp();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.state = reader.int32();
+                    break;
+                case 2:
+                    message.imageData = reader.bytes();
+                    break;
+                case 3:
+                    message.sig = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a QRCodeLoginResp message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dto.QRCodeLoginResp} QRCodeLoginResp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        QRCodeLoginResp.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a QRCodeLoginResp message.
+         * @function verify
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        QRCodeLoginResp.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.state != null && message.hasOwnProperty("state"))
+                switch (message.state) {
+                default:
+                    return "state: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    break;
+                }
+            if (message.imageData != null && message.hasOwnProperty("imageData"))
+                if (!(message.imageData && typeof message.imageData.length === "number" || $util.isString(message.imageData)))
+                    return "imageData: buffer expected";
+            if (message.sig != null && message.hasOwnProperty("sig"))
+                if (!(message.sig && typeof message.sig.length === "number" || $util.isString(message.sig)))
+                    return "sig: buffer expected";
+            return null;
+        };
+
+        /**
+         * Creates a QRCodeLoginResp message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dto.QRCodeLoginResp} QRCodeLoginResp
+         */
+        QRCodeLoginResp.fromObject = function fromObject(object) {
+            if (object instanceof $root.dto.QRCodeLoginResp)
+                return object;
+            var message = new $root.dto.QRCodeLoginResp();
+            switch (object.state) {
+            case "Unknown":
+            case 0:
+                message.state = 0;
+                break;
+            case "QRCodeImageFetch":
+            case 1:
+                message.state = 1;
+                break;
+            case "QRCodeWaitingForScan":
+            case 2:
+                message.state = 2;
+                break;
+            case "QRCodeWaitingForConfirm":
+            case 3:
+                message.state = 3;
+                break;
+            case "QRCodeTimeout":
+            case 4:
+                message.state = 4;
+                break;
+            case "QRCodeConfirmed":
+            case 5:
+                message.state = 5;
+                break;
+            case "QRCodeCanceled":
+            case 6:
+                message.state = 6;
+                break;
+            }
+            if (object.imageData != null)
+                if (typeof object.imageData === "string")
+                    $util.base64.decode(object.imageData, message.imageData = $util.newBuffer($util.base64.length(object.imageData)), 0);
+                else if (object.imageData.length)
+                    message.imageData = object.imageData;
+            if (object.sig != null)
+                if (typeof object.sig === "string")
+                    $util.base64.decode(object.sig, message.sig = $util.newBuffer($util.base64.length(object.sig)), 0);
+                else if (object.sig.length)
+                    message.sig = object.sig;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a QRCodeLoginResp message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dto.QRCodeLoginResp
+         * @static
+         * @param {dto.QRCodeLoginResp} message QRCodeLoginResp
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        QRCodeLoginResp.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.state = options.enums === String ? "Unknown" : 0;
+                if (options.bytes === String)
+                    object.imageData = "";
+                else {
+                    object.imageData = [];
+                    if (options.bytes !== Array)
+                        object.imageData = $util.newBuffer(object.imageData);
+                }
+                if (options.bytes === String)
+                    object.sig = "";
+                else {
+                    object.sig = [];
+                    if (options.bytes !== Array)
+                        object.sig = $util.newBuffer(object.sig);
+                }
+            }
+            if (message.state != null && message.hasOwnProperty("state"))
+                object.state = options.enums === String ? $root.dto.QRCodeLoginResp.QRCodeLoginState[message.state] : message.state;
+            if (message.imageData != null && message.hasOwnProperty("imageData"))
+                object.imageData = options.bytes === String ? $util.base64.encode(message.imageData, 0, message.imageData.length) : options.bytes === Array ? Array.prototype.slice.call(message.imageData) : message.imageData;
+            if (message.sig != null && message.hasOwnProperty("sig"))
+                object.sig = options.bytes === String ? $util.base64.encode(message.sig, 0, message.sig.length) : options.bytes === Array ? Array.prototype.slice.call(message.sig) : message.sig;
+            return object;
+        };
+
+        /**
+         * Converts this QRCodeLoginResp to JSON.
+         * @function toJSON
+         * @memberof dto.QRCodeLoginResp
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        QRCodeLoginResp.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * QRCodeLoginState enum.
+         * @name dto.QRCodeLoginResp.QRCodeLoginState
+         * @enum {number}
+         * @property {number} Unknown=0 Unknown value
+         * @property {number} QRCodeImageFetch=1 QRCodeImageFetch value
+         * @property {number} QRCodeWaitingForScan=2 QRCodeWaitingForScan value
+         * @property {number} QRCodeWaitingForConfirm=3 QRCodeWaitingForConfirm value
+         * @property {number} QRCodeTimeout=4 QRCodeTimeout value
+         * @property {number} QRCodeConfirmed=5 QRCodeConfirmed value
+         * @property {number} QRCodeCanceled=6 QRCodeCanceled value
+         */
+        QRCodeLoginResp.QRCodeLoginState = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "Unknown"] = 0;
+            values[valuesById[1] = "QRCodeImageFetch"] = 1;
+            values[valuesById[2] = "QRCodeWaitingForScan"] = 2;
+            values[valuesById[3] = "QRCodeWaitingForConfirm"] = 3;
+            values[valuesById[4] = "QRCodeTimeout"] = 4;
+            values[valuesById[5] = "QRCodeConfirmed"] = 5;
+            values[valuesById[6] = "QRCodeCanceled"] = 6;
+            return values;
+        })();
+
+        return QRCodeLoginResp;
+    })();
+
     dto.HttpService = (function() {
 
         /**
@@ -2638,6 +3306,72 @@ $root.dto = (function() {
          * @instance
          * @param {dto.ISolveCaptchaReq} request SolveCaptchaReq message or plain object
          * @returns {Promise<dto.SolveCaptchaResp>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link dto.HttpService#fetchQRCode}.
+         * @memberof dto.HttpService
+         * @typedef FetchQRCodeCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {dto.QRCodeLoginResp} [response] QRCodeLoginResp
+         */
+
+        /**
+         * Calls FetchQRCode.
+         * @function fetchQRCode
+         * @memberof dto.HttpService
+         * @instance
+         * @param {dto.IFetchQRCodeReq} request FetchQRCodeReq message or plain object
+         * @param {dto.HttpService.FetchQRCodeCallback} callback Node-style callback called with the error, if any, and QRCodeLoginResp
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(HttpService.prototype.fetchQRCode = function fetchQRCode(request, callback) {
+            return this.rpcCall(fetchQRCode, $root.dto.FetchQRCodeReq, $root.dto.QRCodeLoginResp, request, callback);
+        }, "name", { value: "FetchQRCode" });
+
+        /**
+         * Calls FetchQRCode.
+         * @function fetchQRCode
+         * @memberof dto.HttpService
+         * @instance
+         * @param {dto.IFetchQRCodeReq} request FetchQRCodeReq message or plain object
+         * @returns {Promise<dto.QRCodeLoginResp>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link dto.HttpService#queryQRCodeStatus}.
+         * @memberof dto.HttpService
+         * @typedef QueryQRCodeStatusCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {dto.QRCodeLoginResp} [response] QRCodeLoginResp
+         */
+
+        /**
+         * Calls QueryQRCodeStatus.
+         * @function queryQRCodeStatus
+         * @memberof dto.HttpService
+         * @instance
+         * @param {dto.IQueryQRCodeStatusReq} request QueryQRCodeStatusReq message or plain object
+         * @param {dto.HttpService.QueryQRCodeStatusCallback} callback Node-style callback called with the error, if any, and QRCodeLoginResp
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(HttpService.prototype.queryQRCodeStatus = function queryQRCodeStatus(request, callback) {
+            return this.rpcCall(queryQRCodeStatus, $root.dto.QueryQRCodeStatusReq, $root.dto.QRCodeLoginResp, request, callback);
+        }, "name", { value: "QueryQRCodeStatus" });
+
+        /**
+         * Calls QueryQRCodeStatus.
+         * @function queryQRCodeStatus
+         * @memberof dto.HttpService
+         * @instance
+         * @param {dto.IQueryQRCodeStatusReq} request QueryQRCodeStatusReq message or plain object
+         * @returns {Promise<dto.QRCodeLoginResp>} Promise
          * @variation 2
          */
 

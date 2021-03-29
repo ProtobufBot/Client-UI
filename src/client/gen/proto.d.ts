@@ -1102,6 +1102,296 @@ export namespace dto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a FetchQRCodeReq. */
+    interface IFetchQRCodeReq {
+    }
+
+    /** Represents a FetchQRCodeReq. */
+    class FetchQRCodeReq implements IFetchQRCodeReq {
+
+        /**
+         * Constructs a new FetchQRCodeReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dto.IFetchQRCodeReq);
+
+        /**
+         * Creates a new FetchQRCodeReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns FetchQRCodeReq instance
+         */
+        public static create(properties?: dto.IFetchQRCodeReq): dto.FetchQRCodeReq;
+
+        /**
+         * Encodes the specified FetchQRCodeReq message. Does not implicitly {@link dto.FetchQRCodeReq.verify|verify} messages.
+         * @param message FetchQRCodeReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dto.IFetchQRCodeReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified FetchQRCodeReq message, length delimited. Does not implicitly {@link dto.FetchQRCodeReq.verify|verify} messages.
+         * @param message FetchQRCodeReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dto.IFetchQRCodeReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a FetchQRCodeReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns FetchQRCodeReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.FetchQRCodeReq;
+
+        /**
+         * Decodes a FetchQRCodeReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns FetchQRCodeReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.FetchQRCodeReq;
+
+        /**
+         * Verifies a FetchQRCodeReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a FetchQRCodeReq message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns FetchQRCodeReq
+         */
+        public static fromObject(object: { [k: string]: any }): dto.FetchQRCodeReq;
+
+        /**
+         * Creates a plain object from a FetchQRCodeReq message. Also converts values to other types if specified.
+         * @param message FetchQRCodeReq
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dto.FetchQRCodeReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this FetchQRCodeReq to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a QueryQRCodeStatusReq. */
+    interface IQueryQRCodeStatusReq {
+
+        /** QueryQRCodeStatusReq sig */
+        sig?: (Uint8Array|null);
+    }
+
+    /** Represents a QueryQRCodeStatusReq. */
+    class QueryQRCodeStatusReq implements IQueryQRCodeStatusReq {
+
+        /**
+         * Constructs a new QueryQRCodeStatusReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dto.IQueryQRCodeStatusReq);
+
+        /** QueryQRCodeStatusReq sig. */
+        public sig: Uint8Array;
+
+        /**
+         * Creates a new QueryQRCodeStatusReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns QueryQRCodeStatusReq instance
+         */
+        public static create(properties?: dto.IQueryQRCodeStatusReq): dto.QueryQRCodeStatusReq;
+
+        /**
+         * Encodes the specified QueryQRCodeStatusReq message. Does not implicitly {@link dto.QueryQRCodeStatusReq.verify|verify} messages.
+         * @param message QueryQRCodeStatusReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dto.IQueryQRCodeStatusReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified QueryQRCodeStatusReq message, length delimited. Does not implicitly {@link dto.QueryQRCodeStatusReq.verify|verify} messages.
+         * @param message QueryQRCodeStatusReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dto.IQueryQRCodeStatusReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a QueryQRCodeStatusReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns QueryQRCodeStatusReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.QueryQRCodeStatusReq;
+
+        /**
+         * Decodes a QueryQRCodeStatusReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns QueryQRCodeStatusReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.QueryQRCodeStatusReq;
+
+        /**
+         * Verifies a QueryQRCodeStatusReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a QueryQRCodeStatusReq message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns QueryQRCodeStatusReq
+         */
+        public static fromObject(object: { [k: string]: any }): dto.QueryQRCodeStatusReq;
+
+        /**
+         * Creates a plain object from a QueryQRCodeStatusReq message. Also converts values to other types if specified.
+         * @param message QueryQRCodeStatusReq
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dto.QueryQRCodeStatusReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this QueryQRCodeStatusReq to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a QRCodeLoginResp. */
+    interface IQRCodeLoginResp {
+
+        /** QRCodeLoginResp state */
+        state?: (dto.QRCodeLoginResp.QRCodeLoginState|null);
+
+        /** QRCodeLoginResp imageData */
+        imageData?: (Uint8Array|null);
+
+        /** QRCodeLoginResp sig */
+        sig?: (Uint8Array|null);
+    }
+
+    /** Represents a QRCodeLoginResp. */
+    class QRCodeLoginResp implements IQRCodeLoginResp {
+
+        /**
+         * Constructs a new QRCodeLoginResp.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dto.IQRCodeLoginResp);
+
+        /** QRCodeLoginResp state. */
+        public state: dto.QRCodeLoginResp.QRCodeLoginState;
+
+        /** QRCodeLoginResp imageData. */
+        public imageData: Uint8Array;
+
+        /** QRCodeLoginResp sig. */
+        public sig: Uint8Array;
+
+        /**
+         * Creates a new QRCodeLoginResp instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns QRCodeLoginResp instance
+         */
+        public static create(properties?: dto.IQRCodeLoginResp): dto.QRCodeLoginResp;
+
+        /**
+         * Encodes the specified QRCodeLoginResp message. Does not implicitly {@link dto.QRCodeLoginResp.verify|verify} messages.
+         * @param message QRCodeLoginResp message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dto.IQRCodeLoginResp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified QRCodeLoginResp message, length delimited. Does not implicitly {@link dto.QRCodeLoginResp.verify|verify} messages.
+         * @param message QRCodeLoginResp message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dto.IQRCodeLoginResp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a QRCodeLoginResp message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns QRCodeLoginResp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dto.QRCodeLoginResp;
+
+        /**
+         * Decodes a QRCodeLoginResp message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns QRCodeLoginResp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dto.QRCodeLoginResp;
+
+        /**
+         * Verifies a QRCodeLoginResp message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a QRCodeLoginResp message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns QRCodeLoginResp
+         */
+        public static fromObject(object: { [k: string]: any }): dto.QRCodeLoginResp;
+
+        /**
+         * Creates a plain object from a QRCodeLoginResp message. Also converts values to other types if specified.
+         * @param message QRCodeLoginResp
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dto.QRCodeLoginResp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this QRCodeLoginResp to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace QRCodeLoginResp {
+
+        /** QRCodeLoginState enum. */
+        enum QRCodeLoginState {
+            Unknown = 0,
+            QRCodeImageFetch = 1,
+            QRCodeWaitingForScan = 2,
+            QRCodeWaitingForConfirm = 3,
+            QRCodeTimeout = 4,
+            QRCodeConfirmed = 5,
+            QRCodeCanceled = 6
+        }
+    }
+
     /** Represents a HttpService */
     class HttpService extends $protobuf.rpc.Service {
 
@@ -1191,6 +1481,34 @@ export namespace dto {
          * @returns Promise
          */
         public solveCaptcha(request: dto.ISolveCaptchaReq): Promise<dto.SolveCaptchaResp>;
+
+        /**
+         * Calls FetchQRCode.
+         * @param request FetchQRCodeReq message or plain object
+         * @param callback Node-style callback called with the error, if any, and QRCodeLoginResp
+         */
+        public fetchQRCode(request: dto.IFetchQRCodeReq, callback: dto.HttpService.FetchQRCodeCallback): void;
+
+        /**
+         * Calls FetchQRCode.
+         * @param request FetchQRCodeReq message or plain object
+         * @returns Promise
+         */
+        public fetchQRCode(request: dto.IFetchQRCodeReq): Promise<dto.QRCodeLoginResp>;
+
+        /**
+         * Calls QueryQRCodeStatus.
+         * @param request QueryQRCodeStatusReq message or plain object
+         * @param callback Node-style callback called with the error, if any, and QRCodeLoginResp
+         */
+        public queryQRCodeStatus(request: dto.IQueryQRCodeStatusReq, callback: dto.HttpService.QueryQRCodeStatusCallback): void;
+
+        /**
+         * Calls QueryQRCodeStatus.
+         * @param request QueryQRCodeStatusReq message or plain object
+         * @returns Promise
+         */
+        public queryQRCodeStatus(request: dto.IQueryQRCodeStatusReq): Promise<dto.QRCodeLoginResp>;
     }
 
     namespace HttpService {
@@ -1229,5 +1547,19 @@ export namespace dto {
          * @param [response] SolveCaptchaResp
          */
         type SolveCaptchaCallback = (error: (Error|null), response?: dto.SolveCaptchaResp) => void;
+
+        /**
+         * Callback as used by {@link dto.HttpService#fetchQRCode}.
+         * @param error Error, if any
+         * @param [response] QRCodeLoginResp
+         */
+        type FetchQRCodeCallback = (error: (Error|null), response?: dto.QRCodeLoginResp) => void;
+
+        /**
+         * Callback as used by {@link dto.HttpService#queryQRCodeStatus}.
+         * @param error Error, if any
+         * @param [response] QRCodeLoginResp
+         */
+        type QueryQRCodeStatusCallback = (error: (Error|null), response?: dto.QRCodeLoginResp) => void;
     }
 }
