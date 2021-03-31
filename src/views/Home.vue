@@ -147,6 +147,9 @@ export default class Home extends Vue {
 
   async onFetchQRCodeClick() {
     this.fetchQRCodeResp = await service.fetchQRCode({})
+    if (this.fetchQRCodeResp.state === QRCodeLoginState.QRCodeConfirmed) {
+      this.showCreateDialog = false
+    }
   }
 
   get createBotReq(): ICreateBotReq {
@@ -156,9 +159,10 @@ export default class Home extends Vue {
     }
   }
 
-  createBot() {
-    service.createBot(this.createBotReq).then(resp => {
+  async createBot() {
+    await service.createBot(this.createBotReq).then(resp => {
       alert("创建成功，请处理下方验证码，如果是设备锁验证码填1234")
+      this.showCreateDialog = false
     }).catch(reason => {
       alert("创建失败")
     })
