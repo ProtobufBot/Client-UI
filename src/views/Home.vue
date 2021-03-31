@@ -11,6 +11,13 @@
                 <h2>扫码创建</h2>
               </v-col>
               <v-col cols="12">
+                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeConfirmed">二维码已确认</span>
+                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeWaitingForConfirm">已扫描，等待确认</span>
+                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeWaitingForScan">等待扫码</span>
+                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeTimeout">二维码超时，请重新获取</span>
+                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeCanceled">用户取消登录，请重新获取</span>
+              </v-col>
+              <v-col cols="12">
                 <v-btn @click="onFetchQRCodeClick">获取二维码</v-btn>
               </v-col>
               <v-col cols="12">
@@ -126,14 +133,21 @@ export default class Home extends Vue {
       this.listBotResp = await service.listBot(new ListBotReq({}))
       this.listCaptchaResp = await service.listCaptcha(new ListCaptchaReq())
       if (this.fetchQRCodeResp && !!this.fetchQRCodeResp.sig) {
-        this.queryQRCodeResp = await service.queryQRCodeStatus({sig: this.fetchQRCodeResp.sig})
+        try {
+          this.queryQRCodeResp = await service.queryQRCodeStatus({sig: this.fetchQRCodeResp.sig})
+        } catch (e) {
+          this.fetchQRCodeResp = {} // 停止获取
+          alert("出现了错误，请重新获取二维码" + e)
+        }
         if (this.queryQRCodeResp.state === QRCodeLoginState.QRCodeConfirmed) {
           this.fetchQRCodeResp = {} // 停止获取
+          this.showCreateDialog = false
         }
       }
-    }, 5000)
+    }, 3000)
   }
 
+  QRCodeLoginState = QRCodeLoginState
   showCreateDialog: boolean = false
 
 
@@ -147,9 +161,6 @@ export default class Home extends Vue {
 
   async onFetchQRCodeClick() {
     this.fetchQRCodeResp = await service.fetchQRCode({})
-    if (this.fetchQRCodeResp.state === QRCodeLoginState.QRCodeConfirmed) {
-      this.showCreateDialog = false
-    }
   }
 
   get createBotReq(): ICreateBotReq {
