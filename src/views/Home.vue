@@ -3,6 +3,7 @@
 
     <v-btn @click="showCreateDialog=true" color="primary">创建机器人</v-btn>
     <span style="margin:16px">界面很丑，不要介意，但是能用</span>
+    <span style="margin:16px;color:red">如果重启了程序，必须刷新页面，否则可能会导致闪退</span>
     <v-dialog v-model="showCreateDialog">
       <v-card class="pa-4">
         <v-row>
