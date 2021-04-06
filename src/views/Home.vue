@@ -1,7 +1,8 @@
 <template>
   <v-container class="home">
 
-    <v-btn @click="showCreateDialog=true">创建机器人</v-btn>
+    <v-btn @click="showCreateDialog=true" color="primary">创建机器人</v-btn>
+    <span style="margin:16px">界面很丑，不要介意，但是能用</span>
     <v-dialog v-model="showCreateDialog">
       <v-card class="pa-4">
         <v-row>
@@ -9,6 +10,8 @@
             <v-row>
               <v-col cols="12">
                 <h2>扫码创建</h2>
+                <span>不能扫码流程进行到一半改为密码，如果需要请重启浏览器和程序。</span>
+                <span style="color:red">点击<strong>获取二维码</strong> 之后不要使用账号登录。</span>
               </v-col>
               <v-col cols="12">
                 <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeConfirmed">二维码已确认</span>
@@ -18,7 +21,7 @@
                 <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeCanceled">用户取消登录，请重新获取</span>
               </v-col>
               <v-col cols="12">
-                <v-btn @click="onFetchQRCodeClick">获取二维码</v-btn>
+                <v-btn @click="onFetchQRCodeClick" color="primary">获取二维码</v-btn>
               </v-col>
               <v-col cols="12">
                 <img style="width:300px;height:300px;background: gray"
@@ -31,6 +34,8 @@
             <v-row>
               <v-col cols="12">
                 <h2>使用账号密码</h2>
+                <span>不能密码流程进行到一半改为密码，如果需要请重启浏览器和程序。</span>
+                <span style="color:red">点击<strong>创建</strong>之后不要点击获取二维码。</span>
               </v-col>
               <v-col cols="12">
                 <v-text-field dense v-model="createBotId" outlined placeholder="QQ"/>
