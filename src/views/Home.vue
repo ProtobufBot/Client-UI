@@ -7,250 +7,42 @@
       <v-card class="pa-4">
         <v-row>
           <v-col cols="6">
-            <v-row>
-              <v-col cols="12">
-                <h2>扫码创建</h2>
-                <span>不能扫码流程进行到一半改为密码，如果需要请重启浏览器和程序。</span>
-                <span style="color:red">点击<strong>获取二维码</strong> 之后不要使用账号登录。</span>
-              </v-col>
-              <v-col cols="12">
-                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeConfirmed">二维码已确认</span>
-                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeWaitingForConfirm">已扫描，等待确认</span>
-                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeWaitingForScan">等待扫码</span>
-                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeTimeout">二维码超时，请重新获取</span>
-                <span v-if="queryQRCodeResp.state===QRCodeLoginState.QRCodeCanceled">用户取消登录，请重新获取</span>
-              </v-col>
-              <v-col cols="12">
-                <v-btn @click="onFetchQRCodeClick" color="primary">获取二维码</v-btn>
-              </v-col>
-              <v-col cols="12">
-                <img style="width:300px;height:300px;background: gray"
-                     v-if="!!this.fetchQRCodeResp.imageData"
-                     :src="getImage(this.fetchQRCodeResp.imageData)">
-              </v-col>
-            </v-row>
+            <q-r-code-create @finish="onCreateFinish"/>
           </v-col>
           <v-col cols="6">
-            <v-row>
-              <v-col cols="12">
-                <h2>使用账号密码</h2>
-                <span>不能密码流程进行到一半改为密码，如果需要请重启浏览器和程序。</span>
-                <span style="color:red">点击<strong>创建</strong>之后不要点击获取二维码。</span>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field dense v-model="createBotId" outlined placeholder="QQ"/>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field dense v-model="createBotPassword" outlined placeholder="密码"
-                              type="password"/>
-              </v-col>
-              <v-col cols="12">
-                <v-btn block @click="createBot" color="primary">创建</v-btn>
-              </v-col>
-            </v-row>
+            <password-create @finish="onCreateFinish"/>
           </v-col>
         </v-row>
-
-
       </v-card>
     </v-dialog>
 
     <v-card class="pa-4 ma-4">
-      <v-container>
-        <h1>机器人列表</h1>
-        <v-data-table :items="listBotResp.botList" :headers="botTableHeaders">
-          <template v-slot:item.isOnline="{ item }">
-            <v-chip :color="item.isOnline?'success':'error'">{{ item.isOnline ? '在线' : '离线' }}</v-chip>
-          </template>
-          <template v-slot:item.login="{ item }">
-            <v-btn :disabled="item.isOnline" @click="login(item.botId)" color="success">登陆</v-btn>
-          </template>
-        </v-data-table>
-      </v-container>
+      <list-bot/>
     </v-card>
-
 
     <v-card class="pa-4 ma-4">
-      <v-row>
-        <v-col><h2>处理验证码</h2></v-col>
-        <v-col cols="4">
-          <v-text-field dense v-model="captchaBotId" outlined placeholder="QQ"></v-text-field>
-        </v-col>
-        <v-col cols="4">
-          <v-text-field dense v-model="captchaResult" outlined placeholder="结果"></v-text-field>
-        </v-col>
-        <v-col cols="2">
-          <v-btn @click="solveCaptcha" color="primary">提交</v-btn>
-        </v-col>
-      </v-row>
-      <v-container>
-        <h1>验证码列表</h1>
-        <v-data-table :items="listCaptchaResp.captchaList" :headers="captchaTableHeaders">
-          <template v-slot:item.captchaType="{ item }">
-            <span v-if="item.captchaType===CaptchaType.PIC_CAPTCHA">图片</span>
-            <span v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA">滑动</span>
-            <span v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY">设备锁</span>
-          </template>
-          <template v-slot:item.captchaType="{ item }">
-            <span v-if="item.captchaType===CaptchaType.PIC_CAPTCHA">图片</span>
-            <span v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA">滑动</span>
-            <span v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY">设备锁</span>
-            <span v-if="item.captchaType===CaptchaType.SMS">短信</span>
-          </template>
-          <template v-slot:item.detail="{ item }">
-            <img v-if="item.captchaType===CaptchaType.PIC_CAPTCHA" :src="getImage(item.image)"
-                 style="height: 36px"/>
-            <a v-if="item.captchaType===CaptchaType.SLIDER_CAPTCHA" target="_blank" :href="item.url">链接</a>
-            <a v-if="item.captchaType===CaptchaType.UNSAFE_DEVICE_LOGIN_VERIFY" target="_blank"
-               :href="item.url">链接</a>
-            <span v-if="item.captchaType===CaptchaType.SMS">{{ item.url }}</span>
-          </template>
-        </v-data-table>
-
-      </v-container>
+      <process-captcha/>
     </v-card>
-
 
   </v-container>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
-
-
 import {Component, Vue} from "vue-property-decorator";
-import {dto} from "@/client/gen/proto";
-import Long from "long";
-import {service} from "@/client/RpcImpl";
-import ICreateBotReq = dto.ICreateBotReq;
-import IListBotResp = dto.IListBotResp;
-import ListBotReq = dto.ListBotReq;
-import IListCaptchaResp = dto.IListCaptchaResp;
-import ListCaptchaReq = dto.ListCaptchaReq;
-import CaptchaType = dto.Captcha.CaptchaType;
-import IQRCodeLoginResp = dto.IQRCodeLoginResp;
-import QRCodeLoginState = dto.QRCodeLoginResp.QRCodeLoginState;
+import QRCodeCreate from "@/views/CreateBot/QRCodeCreate.vue";
+import PasswordCreate from "@/views/CreateBot/PasswordCreate.vue";
+import ProcessCaptcha from "@/views/ProcessCaptcha/ProcessCaptcha.vue";
+import ListBot from "@/views/ListBot/ListBot.vue";
 
-@Component
+@Component({
+  components: {ListBot, ProcessCaptcha, PasswordCreate, QRCodeCreate}
+})
 export default class Home extends Vue {
-  mounted() {
-    setInterval(async () => {
-      this.listBotResp = await service.listBot(new ListBotReq({}))
-      this.listCaptchaResp = await service.listCaptcha(new ListCaptchaReq())
-      if (this.fetchQRCodeResp && !!this.fetchQRCodeResp.sig) {
-        try {
-          this.queryQRCodeResp = await service.queryQRCodeStatus({sig: this.fetchQRCodeResp.sig})
-        } catch (e) {
-          this.fetchQRCodeResp = {} // 停止获取
-          alert("出现了错误，请重新获取二维码" + e)
-        }
-        if (this.queryQRCodeResp.state === QRCodeLoginState.QRCodeConfirmed) {
-          this.fetchQRCodeResp = {} // 停止获取
-          this.showCreateDialog = false
-        }
-      }
-    }, 3000)
-  }
-
-  QRCodeLoginState = QRCodeLoginState
   showCreateDialog: boolean = false
 
-
-  fetchQRCodeResp: IQRCodeLoginResp = {}
-  queryQRCodeResp: IQRCodeLoginResp = {}
-
-  CaptchaType = CaptchaType
-
-  createBotId: string = ''
-  createBotPassword: string = ''
-
-  async onFetchQRCodeClick() {
-    this.fetchQRCodeResp = await service.fetchQRCode({})
+  onCreateFinish() {
+    this.showCreateDialog = false
   }
-
-  get createBotReq(): ICreateBotReq {
-    return {
-      botId: Long.fromString(this.createBotId),
-      password: this.createBotPassword
-    }
-  }
-
-  async createBot() {
-    await service.createBot(this.createBotReq).then(resp => {
-      alert("创建成功，请处理下方验证码，如果是设备锁验证码填1234")
-      this.showCreateDialog = false
-    }).catch(reason => {
-      alert("创建失败")
-    })
-  }
-
-  getImage(bytes: Uint8Array): string {
-    let data = ""
-    for (let i = 0; i < bytes.length; i++) {
-      data += String.fromCharCode(bytes[i])
-    }
-    return "data:image/png;base64," + window.btoa(data)
-  }
-
-  listBotResp: IListBotResp = {
-    botList: []
-  }
-  botTableHeaders = [
-    {
-      text: "QQ",
-      value: "botId",
-      align: "center"
-    },
-    {
-      text: "在线",
-      value: "isOnline",
-      align: "center"
-    },
-    {
-      text: "登陆",
-      value: "login",
-      align: "center"
-    }
-  ]
-
-  login(botId: Long) {
-    service.botLoginAsync({
-      botId: botId
-    })
-  }
-
-  listCaptchaResp: IListCaptchaResp = {
-    captchaList: []
-  }
-
-  captchaTableHeaders = [
-    {
-      text: "QQ",
-      value: "botId",
-      align: "center"
-    },
-    {
-      text: "验证类型",
-      value: "captchaType",
-      align: "center"
-    },
-    {
-      text: "详情",
-      value: "detail",
-      align: "center"
-    }
-  ]
-
-
-  captchaBotId: string = ''
-  captchaResult: string = ''
-
-  solveCaptcha() {
-    service.solveCaptcha({
-      botId: Long.fromString(this.captchaBotId),
-      result: this.captchaResult
-    })
-  }
-
 }
 </script>
